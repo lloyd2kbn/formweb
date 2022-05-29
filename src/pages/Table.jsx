@@ -1,8 +1,12 @@
 import React from 'react'
+import { useState,useEffect } from 'react';
 import TableItem from '../components/TableItem';
+import axios from 'axios';
+import { Link} from 'react-router-dom';
 import '../css/table.css';
 function Table() {
-
+    const [state,setState]=useState([]);
+    const [total,setTotal]=useState(0);
     const data=[
         {
             "button":"Edit",
@@ -23,12 +27,33 @@ function Table() {
             "date":"06/05/2000"
         }
     ]
+ 
+// load Du Lieu
+    useEffect(()=>{
+        axios.get(`http://localhost:8888/api/student`)
+      .then(res => {
+        const persons = res.data;
+            setState(persons)
+            const hello=state.reduce((init,item)=>{
+                return item+init;
+        },0)
+       
+      })
+      .catch(error => console.log(error));
+    },[])
+
+    const totalStudent=state.reduce((item,index)=>{
+            return 1+item;
+    },0)
+     
+
+
   return (
     <>
             <div className='table'>
-                    <div className='table-title'><p>Student List </p><p className='count'>(4)</p></div>
+                    <div className='table-title'><p>Student List </p><p className='count'>({totalStudent})</p></div>
                     <div className='buttons'>
-                        <button>New...</button>
+                        <button><Link to="/forms">New...</Link></button>
                         <button disabled>Delete</button>
                     </div>
                     <table>
@@ -40,12 +65,13 @@ function Table() {
                             <th>Birthday</th>
                         </tr>
                         {
-                            data.map((item,index)=>{
+                            state.map((item,index)=>{
                                 return  <TableItem 
-                                button={item.button} 
+                                key={index}
+                                button={item.button="Edit"} 
                                 studentId={item.studentId}
                                 name={item.name}
-                                birthday={item.date}
+                                birthday={item.birthday}
                                 />
                             })
                         }
