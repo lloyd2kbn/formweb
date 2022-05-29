@@ -7,26 +7,6 @@ import '../css/table.css';
 function Table() {
     const [state,setState]=useState([]);
     const [total,setTotal]=useState(0);
-    const data=[
-        {
-            "button":"Edit",
-            "studentId":"0908381645",
-            "name":"Luu Van An",
-            "date":"06/05/2000"
-        },
-        {
-            "button":"Edit",
-            "studentId":"0908381645",
-            "name":"Nguyen Hoang Minh",
-            "date":"06/05/2000"
-        },
-        {
-            "button":"Edit",
-            "studentId":"0908381645",
-            "name":"Nguyen Dang Thien",
-            "date":"06/05/2000"
-        }
-    ]
  
 // load Du Lieu
     useEffect(()=>{
