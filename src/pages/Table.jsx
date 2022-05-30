@@ -33,7 +33,7 @@ function Table() {
             <div className='table'>
                     <div className='table-title'><p>Student List </p><p className='count'>({totalStudent})</p></div>
                     <div className='buttons'>
-                        <button><Link to="/forms">New...</Link></button>
+                        <button><Link to="/formNewStudent">New...</Link></button>
                         <button disabled>Delete</button>
                     </div>
                     <table>

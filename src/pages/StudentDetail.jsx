@@ -2,9 +2,9 @@ import React from 'react'
 import { useLocation } from 'react-router-dom';
 import '../css/student.css';
 function StudentDetail() {
-  const location=useLocation();
-  const {studentId,name,birthday}=location.state;
-  console.log(studentId,name,birthday)
+  // const location=useLocation();
+  // const {studentId,name,birthday}=location.state;
+  // console.log(studentId,name,birthday)
   return (
       <div className='studentDetailContainer'>
     <h1>Student Detail</h1>
@@ -21,10 +21,10 @@ function StudentDetail() {
             
         </div>
             <div className='studentDetailRight'>
-                    <div className='studentId'>{studentId}</div>
-                    <div className='name'>{name}</div>
+                    <div className='studentId'>aaa</div>
+                    <div className='name'>aaa</div>
                     <input type="checkbox" />
-                    <div className='birthDay'>{birthday}</div>
+                    <div className='birthDay'>aa</div>
                     <div className='placeOfBirth'>Hà Nội</div>
                     <div className='address'>45 ký con</div>
                     <div className='department'>Anh Văn</div>
